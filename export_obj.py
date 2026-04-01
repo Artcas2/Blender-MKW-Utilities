@@ -371,7 +371,8 @@ def write_file(filepath, objects, depsgraph, scene,
                             continue  # dont bother with this mesh.
 
                         if EXPORT_NORMALS and face_index_pairs:
-                            me.calc_normals_split()
+                            if bpy.app.version < (4, 1, 0):
+                                me.calc_normals_split()
                             # No need to call me.free_normals_split later, as this mesh is deleted anyway!
 
                         loops = me.loops
