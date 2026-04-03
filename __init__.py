@@ -573,13 +573,13 @@ class openGithub(bpy.types.Operator):
         scene = context.scene
         mytool = scene.kmpt
         if(get_prefs(context).prerelease_bool):
-            responseVersions = requests.get("https://api.github.com/repos/Gabriela-Orzechowska/Blender-MKW-Utilities/releases")
+            responseVersions = requests.get("https://api.github.com/repos/Artcas2/Blender-MKW-Utilities/releases")
             prerelease = responseVersions.json()[0]["url"]
             responseVersions = requests.get(prerelease)
             prerelease_version = responseVersions.json()["tag_name"]
-            webbrowser.get().open('https://github.com/Gabriela-Orzechowska/Blender-MKW-Utilities/releases/tag/{0}'.format(prerelease_version))
+            webbrowser.get().open('https://github.com/Artcas2/Blender-MKW-Utilities/releases/tag/{0}'.format(prerelease_version))
         else:
-            webbrowser.get().open('http://www.github.com/Gabriela-Orzechowska/Blender-KMP-Utilities/releases/latest')
+            webbrowser.get().open('https://www.github.com/Artcas2/Blender-MKW-Utilities/releases/latest')
         return {'FINISHED'}
 
 class openWSZSTPage(bpy.types.Operator):
@@ -595,7 +595,7 @@ class openIssuePage(bpy.types.Operator):
     bl_label = "Report a bug"
 
     def execute(self, context):
-        webbrowser.get().open('https://github.com/Gabriela-Orzechowska/Blender-MKW-Utilities/issues/new')
+        webbrowser.get().open('https://github.com/Artcas2/Blender-MKW-Utilities/issues/new')
         return {'FINISHED'}
 
 class buildSZSCurrent(bpy.types.Operator):
@@ -3784,8 +3784,8 @@ def update_scene_handler(scene):
 def load_file_handler(dummy):
     global theresAnUpdate
     global current_version, latest_version, prerelease_version
-    responseLatest = requests.get("https://api.github.com/repos/Gabriela-Orzechowska/Blender-MKW-Utilities/releases/latest")
-    responseVersions = requests.get("https://api.github.com/repos/Gabriela-Orzechowska/Blender-MKW-Utilities/releases")
+    responseLatest = requests.get("https://api.github.com/repos/Artcas2/Blender-MKW-Utilities/releases/latest")
+    responseVersions = requests.get("https://api.github.com/repos/Artcas2/Blender-MKW-Utilities/releases")
     prerelease = responseVersions.json()[0]["url"]
     responseVersions = requests.get(prerelease)
     prerelease_version = responseVersions.json()["tag_name"]
